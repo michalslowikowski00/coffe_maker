@@ -40,7 +40,6 @@ class CoffeeMaker: #TODO: dzidziczenie
 
         #TODO: try/catch
         #TODO: make_coffee jako metoda z argumentem rodzaj kawy
-        #TODO: CoffeeIngredients insted of WaterTank & CoffeeBeansTank
 
         self.coffee_menu()
         self.customer_choice = input("Choice> ").lower()
