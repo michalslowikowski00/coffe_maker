@@ -3,7 +3,7 @@
 import coffe_ingredients
 
 
-class CoffeeMaker(coffe_ingredients): #TODO: dzidziczenie
+class CoffeeMaker: #TODO: dzidziczenie
     # def __init__(self):
     #     self.customer_choice = input("Choice> ").lower()
 
@@ -32,8 +32,8 @@ class CoffeeMaker(coffe_ingredients): #TODO: dzidziczenie
     def make_coffee(self):
         # rename to order?
         """Make coffee based on customer order"""
-        water = coffe_ingredients.WaterTank
-        coffee = coffe_ingredients.CoffeeBeansTank
+        water = coffe_ingredients.WaterTank()
+        coffee = coffe_ingredients.CoffeeBeansTank()
 
         # self.coffee_menu()
         # self.choice()

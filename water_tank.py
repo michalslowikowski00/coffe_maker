@@ -1,4 +1,5 @@
 
 
 class WaterTank:
-    amount_water: int = 1000
+    def __init__(self):
+        self.amount_water: int = 1000
