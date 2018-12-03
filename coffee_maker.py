@@ -1,77 +1,71 @@
 # import coffee_beans_tank
 # import water_tank
 import coffe_ingredients
+from msvcrt import getch
 
 
-class CoffeeMaker: #TODO: dzidziczenie
-    # def __init__(self):
-    #     self.customer_choice = input("Choice> ").lower()
+class CoffeeMaker:  # TODO: dzidziczenie
+    water = coffe_ingredients.WaterTank()
+    coffee = coffe_ingredients.CoffeeBeansTank()
 
-    def coffee_menu(self):
-        """Displays available coffee for customer"""
-        espresso = "1. espresso"
-        americano = "2. americano"
+    amount_of_water_for_espresso = 100
+    amount_of_coffee_for_espresso = 15
+
+    amount_of_water_for_americano = 250
+    amount_of_coffee_for_americano = 10
+
+    def display_coffee_menu(self):
+        """Display available coffee for customer"""
+        espresso = "1. Espresso"
+        americano = "2. Americano"
         print(espresso + "\n" + americano)
 
-    # customer_choice = input("Choice> ").lower()
+    def press_button(self):
 
-    #TODO: fix the method
-    # def choice(self):
-    #
-    #     return customer_choice
-
-    #TODO: menu for user
-    # water = water_tank
-    # coffee = coffee_beans_tank
-
-    _espresso_water = 100
-    _espresso_coffee_beans = 10
-    _americano_water = 250
-    _americano_coffee_beans = 5
+        while True:
+            key = ord(getch())
+            if key == 27:  # ESC
+                break
+            elif key == 13:  # Enter
+                select()
+            elif key == 224:  # Special keys (arrows, f keys, ins, del, etc.)
+                key = ord(getch())
+                if key == 80:  # Down arrow
+                    moveDown()
+                elif key == 72:  # Up arrow
+                    moveUp()
 
     def make_coffee(self):
-        # rename to order?
         """Make coffee based on customer order"""
-        water = coffe_ingredients.WaterTank()
-        coffee = coffe_ingredients.CoffeeBeansTank()
 
-        # self.coffee_menu()
-        # self.choice()
+        self.display_coffee_menu()
+        order = input("Choice> ").lower()
 
-        #TODO: try/catch
-        #TODO: make_coffee jako metoda z argumentem rodzaj kawy
-
-        self.coffee_menu()
-        self.customer_choice = input("Choice> ").lower()
-
-        if self.customer_choice == "espresso":
+        if order == "espresso":
             print("Checking coffee...")
-            if water.amount_water >= 100 and coffee.amount_coffee_beans >= 10:
-                pass
-            else:
-                if water.amount_water < 100:
-                    print("Fill Water Tank")
-                    return False
-                elif coffee.amount_coffee_beans < 5:
-                    print("Fill Coffee Beans Tank")
-                    return False
-                else:
-                    print("Fill Water Tank and Coffee Beans")
-                    return False
-            espresso = water.amount_water - self._espresso_water and \
-                  coffee.amount_coffee_beans - self._espresso_coffee_beans
-            print("Preparing espresso, please wait a moment")
+            if self.water.amount_of_water < 100:
+                print("No water, Fill the watertank")
+                return False
+            elif self.coffee.amount_of_coffee < 15:
+                print("No coffee beans, fill the coffeetank")
+                return False
+            print("Preparing Espresso, please wait a moment")
             print("Coffee is ready, take your drink")
-            return espresso
+            return True
 
-        elif self.customer_choice == "americano":
-            americano = water.amount_water - self._americano_water and \
-                        coffee.amount_coffee_beans - self._americano_coffee_beans
-            return americano
+        elif order == "americano":
+            if self.water.amount_of_water < 250:
+                print("Fill the Water Tank")
+                return False
+            elif self.coffee.amount_of_coffee < 10:
+                print("Fill the Beans Tank")
+                return False
+            print("Preparing Americano, please wait a moment")
+            print("Coffee is ready, take your drink")
+            return True
         else:
-            print("Selected item is not in menu")
-            self.coffee_menu()
-            # TODO: return except
+            print("No coffee selected.\nPlease select coffee.")
+            self.display_coffee_menu()
 
 
 if __name__ == "__main__":

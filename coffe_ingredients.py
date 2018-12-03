@@ -1,10 +1,16 @@
 
 
 class CoffeeBeansTank:
-    amount_coffee_beans = 1000
-
-    # TODO: logic for empty state
+    amount_of_coffee: int = 1000
 
 
 class WaterTank:
-    amount_water: int = 1000
+    amount_of_water: int = 1000
+
+
+class Sugar:
+    amount_of_sugar = 1000
+
+
+class Milk:
+    amount_of_milk = 1000
