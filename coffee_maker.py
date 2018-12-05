@@ -7,6 +7,8 @@ class CoffeeMaker:
     water = coffe_ingredients.WaterTank()
     get_coffee_ingredients = coffe_ingredients.CoffeeBeansTank()
 
+    # TODO: fix this values
+
     amount_of_water_for_espresso = 100
     amount_of_coffee_for_espresso = 15
 
