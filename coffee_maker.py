@@ -46,6 +46,7 @@ class CoffeeMaker:  # TODO: dzidziczenie
         order = input("Choice > ").lower()
 
         if order == "espresso":
+            while order == "espresso":
             pprint("Checking coffee...")
             if self.water.amount_of_water < 100:
                 pprint("No water, Fill the watertank")
