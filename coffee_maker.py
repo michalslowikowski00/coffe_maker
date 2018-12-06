@@ -12,6 +12,7 @@ class CoffeeMaker:
     water_for_americano = 250
     coffee_for_americano = 10
 
+
     @staticmethod
     def display_coffee_menu():
         """Display available coffee for customer"""
@@ -45,12 +46,11 @@ class CoffeeMaker:
 
     def make_coffee(self):
         """Make coffee based on customer order"""
-
         try:
             self.display_coffee_menu()
             order = input("Choice > ").lower()
         except RuntimeError:
-            pprint("Something goes wrong, please try again")
+            pprint("Something went wrong, please try again")
 
         if order == "espresso":
             pprint("Checking coffee...")
@@ -61,26 +61,29 @@ class CoffeeMaker:
             pprint("Preparing Espresso, please wait a moment")
             pprint("Coffee is ready, take your drink")
             pprint(self.coffee.get_coffee())
+            self.set_new_values_for_coffee_ingredients()
 
         elif order == "americano":
             pprint("Checking coffee...")
+            pprint("Coffee in tank: {0} grams".format(self.coffee.get_coffee()))
             try:
                 self.americano()
             except RuntimeError:
                 pprint("No coffee selected")
             pprint("Preparing Americano, please wait a moment")
             pprint("Coffee is ready, take your drink")
+            self.set_new_values_for_coffee_ingredients()
+            pprint("Coffee left in tank after this coffee: {0} grams".format(self.coffee.get_coffee()))
         else:
-            pprint("No coffee selected.\nPlease select coffee.")
-            self.display_coffee_menu()
+            pprint("No coffee selected. Please select coffee.")
+            print(" ")
+            self.make_coffee()
 
-            def set_new_values_for_coffee_ingredients():
-                new_amount_of_coffee = self.coffee.get_coffee()
-                new_amount_of_coffee = new_amount_of_coffee - self.coffee_for_espresso
-                self.coffee.set_coffee(new_amount_of_coffee)
-                pprint(self.coffee.get_coffee())
-
-            set_new_values_for_coffee_ingredients()
+    def set_new_values_for_coffee_ingredients(self):
+        new_amount_of_coffee = self.coffee.get_coffee()
+        new_amount_of_coffee = new_amount_of_coffee - self.coffee_for_espresso
+        self.coffee.set_coffee(new_amount_of_coffee)
+        pprint(self.coffee.get_coffee())
 
 
 if __name__ == "__main__":
