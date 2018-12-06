@@ -1,81 +1,86 @@
-# import coffee_beans_tank
-# import water_tank
-from logging import log, info, debug
 from pprint import pprint
-
 import coffe_ingredients
-# from msvcrt import getch
 
 
-class CoffeeMaker:  # TODO: dzidziczenie
+class CoffeeMaker:
     water = coffe_ingredients.WaterTank()
     coffee = coffe_ingredients.CoffeeBeansTank()
 
-    amount_of_water_for_espresso = 100
-    amount_of_coffee_for_espresso = 15
+    water_for_espresso = 100
+    coffee_for_espresso = 15
 
-    amount_of_water_for_americano = 250
-    amount_of_coffee_for_americano = 10
+    water_for_americano = 250
+    coffee_for_americano = 10
 
-    def display_coffee_menu(self):
+    @staticmethod
+    def display_coffee_menu():
         """Display available coffee for customer"""
-        espresso = "1. Espresso"
-        americano = "2. Americano"
-        print(espresso + "\n" + americano)
+        try:
+            espresso = "1. Espresso"
+            americano = "2. Americano"
+            print(espresso + "\n" + americano)
+        except RuntimeError:
+            print("Menu was not displayed")
 
-    # def press_button(self):
-    #
-    #     while True:
-    #         key = ord(getch())
-    #         if key == 27:  # ESC
-    #             break
-    #         elif key == 13:  # Enter
-    #             select()
-    #         elif key == 224:  # Special keys (arrows, f keys, ins, del, etc.)
-    #             key = ord(getch())
-    #             if key == 80:  # Down arrow
-    #                 moveDown()
-    #             elif key == 72:  # Up arrow
-    #                 moveUp()
+
+    # TODO: add button for preparing coffee
+
+    def espresso(self):
+        if self.water.amount_of_water < self.water_for_espresso:
+            pprint("No water, Fill the watertank")
+            return False
+        elif self.coffee.amount_of_coffee < self.coffee_for_espresso:
+            pprint("No coffee beans, fill the coffeetank")
+            return False
+        return True
+
+    def americano(self):
+        if self.water.amount_of_water < self.water_for_americano:
+            pprint("No water, Fill the watertank")
+            return False
+        elif self.coffee.amount_of_coffee < self.coffee_for_americano:
+            pprint("No coffee beans, fill the coffeetank")
+            return False
+        return True
 
     def make_coffee(self):
         """Make coffee based on customer order"""
 
-        get_coffee = coffe_ingredients.CoffeeBeansTank()
-        self.display_coffee_menu()
-        order = input("Choice > ").lower()
+        try:
+            self.display_coffee_menu()
+            order = input("Choice > ").lower()
+        except RuntimeError:
+            pprint("Something goes wrong, please try again")
 
         if order == "espresso":
             pprint("Checking coffee...")
-            if self.water.amount_of_water < 100:
-                pprint("No water, Fill the watertank")
-                return False
-            elif self.coffee.amount_of_coffee < 15:
-                pprint("No coffee beans, fill the coffeetank")
-                return False
+            try:
+                self.espresso()
+            except RuntimeError:
+                pprint("No coffee selected")
             pprint("Preparing Espresso, please wait a moment")
             pprint("Coffee is ready, take your drink")
-            pprint(get_coffee.getCoffee())
-
-            self.new_amount = get_coffee.getCoffee()
-            self.new_amount = self.new_amount - self.amount_of_coffee_for_espresso
-            get_coffee.setCoffee(self.new_amount)
-            pprint(get_coffee.getCoffee())
-            return True
+            pprint(self.coffee.get_coffee())
 
         elif order == "americano":
-            if self.water.amount_of_water < 250:
-                pprint("Fill the Water Tank")
-                return False
-            elif self.coffee.amount_of_coffee < 10:
-                pprint("Fill the Beans Tank")
-                return False
+            pprint("Checking coffee...")
+            try:
+                self.americano()
+            except RuntimeError:
+                pprint("No coffee selected")
             pprint("Preparing Americano, please wait a moment")
             pprint("Coffee is ready, take your drink")
-            return True
         else:
             pprint("No coffee selected.\nPlease select coffee.")
             self.display_coffee_menu()
+
+            def set_new_values_for_coffee_ingredients():
+                new_amount_of_coffee = self.coffee.get_coffee()
+                new_amount_of_coffee = new_amount_of_coffee - self.coffee_for_espresso
+                self.coffee.set_coffee(new_amount_of_coffee)
+                pprint(self.coffee.get_coffee())
+
+            set_new_values_for_coffee_ingredients()
 
 
 if __name__ == "__main__":

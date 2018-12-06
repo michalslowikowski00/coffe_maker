@@ -3,10 +3,10 @@
 class CoffeeBeansTank:
     amount_of_coffee: int = 1000
 
-    def getCoffee(self):
+    def get_coffee(self):
         return self.amount_of_coffee
 
-    def setCoffee(self, coffee):
+    def set_coffee(self, coffee):
         if coffee >= 100:
             self.amount_of_coffee = coffee
         else:
