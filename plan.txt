@@ -1,0 +1,12 @@
+- usunąc rekurencje (wywolywanie metredy X w tym ciele metody)
+- printy wyciagnac do pliku jako zmienne
+- pprint usunac
+- wybor kawy
+1. espresso
+2. americano
+3. anuluj
+
+- operatory += / -=
+- try / catch nie potrezben
+- set_new_values_for_coffee_ingredients(self) -- zrobic metode generyczna, teraz tylko pracuje dla epsresso
+
