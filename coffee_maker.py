@@ -1,10 +1,12 @@
 import coffe_ingredients
+from messages import Messages
 
 
 class CoffeeMaker:
     # TODO docstring
     water = coffe_ingredients.WaterTank()
     coffee = coffe_ingredients.CoffeeBeansTank()
+    messages = Messages
 
     water_for_espresso = 100
     coffee_for_espresso = 15
@@ -27,20 +29,20 @@ class CoffeeMaker:
     def espresso(self):
         # TODO docstring
         if self.water.amount_of_water < self.water_for_espresso:
-            print("No water, fill the water tank")
+            print(Messages.no_water)
             return False
         elif self.coffee.amount_of_coffee < self.coffee_for_espresso:
-            print("No coffee beans, fill the coffee tank")
+            print(Messages.no_coffee)
             return False
         return True
 
     def americano(self):
         # TODO docstring
         if self.water.amount_of_water < self.water_for_americano:
-            print("No water, fill the water tank")
+            print(Messages.no_water)
             return False
         elif self.coffee.amount_of_coffee < self.coffee_for_americano:
-            print("No coffee beans, fill the coffee tank")
+            print(Messages.no_coffee)
             return False
         return True
 
@@ -50,32 +52,30 @@ class CoffeeMaker:
         order = input("Choice > ").lower()
 
         if order == "1":
-            print("Checking coffee...")
+            print(Messages.checking_coffee)
             self.espresso()
-            print("Preparing Espresso, please wait a moment")
-            print("Coffee is ready, take your drink")
-            print(self.coffee.get_coffee())
+            print(Messages.preparing_espresso)
+            print(Messages.coffee_is_ready)
+            # print(self.coffee.get_coffee())
             self.set_new_values_for_coffee_ingredients(self.coffee_for_espresso)
 
         elif order == "2":
-            print("Checking coffee...")
-            print("Coffee in tank: {0} grams".format(self.coffee.get_coffee()))
+            print(Messages.checking_coffee)
+            print(Messages.left_coffee_in_tank.format(self.coffee.get_coffee()))
             self.americano()
-            print("Preparing Americano, please wait a moment")
-            print("Coffee is ready, take your drink")
+            print(Messages.preparing_americano)
+            print(Messages.coffee_is_ready)
             self.set_new_values_for_coffee_ingredients(self.coffee_for_americano)
-            # print("Coffee left in tank after this coffee: {0} grams".format(self.coffee.get_coffee()))
         elif order == "3":
-            print("Order was canceled")
+            print(Messages.canceled_order)
         else:
-            print("No coffee selected. Please select coffee.")
+            print(Messages.no_coffee_selected)
 
     def set_new_values_for_coffee_ingredients(self, amnt_of_coffee):
         # TODO docstring
         new_amount_of_coffee = self.coffee.get_coffee()
         new_amount_of_coffee -= amnt_of_coffee
         self.coffee.set_coffee(new_amount_of_coffee)
-        # print(self.coffee.get_coffee())
 
 
 if __name__ == "__main__":

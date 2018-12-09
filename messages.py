@@ -1,4 +1,4 @@
-class Messeges:
+class Messages:
     no_water = "No water, fill the water tank"
     no_coffee = "No coffee beans, fill the coffee tank"
     checking_coffee = "Checking coffee..."
