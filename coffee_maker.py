@@ -56,7 +56,6 @@ class CoffeeMaker:
             self.espresso()
             print(Messages.preparing_espresso)
             print(Messages.coffee_is_ready)
-            # print(self.coffee.get_coffee())
             self.set_new_values_for_coffee_ingredients(self.coffee_for_espresso)
 
         elif order == "2":
