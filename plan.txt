@@ -1,6 +1,4 @@
-- usunąc rekurencje (wywolywanie metredy X w tym ciele metody)
 - printy wyciagnac do pliku jako zmienne
-- pprint usunac
 - wybor kawy
 1. espresso
 2. americano
