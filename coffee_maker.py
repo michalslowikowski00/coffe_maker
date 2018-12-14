@@ -8,9 +8,13 @@ class CoffeeMaker:
     coffee = coffe_ingredients.CoffeeBeansTank()
     messages = Messages
 
+    # coffee_ingr = {"espresso_water": 100,
+    #               "americano_water": 250,
+    #               "coffee_espresso": 15,
+    #               "coffee_for_americano": 10}
+
     water_for_espresso = 100
     coffee_for_espresso = 15
-
     water_for_americano = 250
     coffee_for_americano = 10
 
@@ -21,6 +25,7 @@ class CoffeeMaker:
         americano = "2. Americano"
         cancel = "3. Cancel"
         print(espresso + "\n" + americano + "\n" + cancel)
+        return
 
     # TODO: add button for preparing coffee
     # TODO: add data base for saving amount of water and coffee
@@ -68,18 +73,21 @@ class CoffeeMaker:
             print(Messages.canceled_order)
         else:
             print(Messages.no_coffee_selected)
+        return
 
     def set_new_values_for_coffee_ingredients(self, amnt_of_coffee):
         # TODO docstring
         new_amnt_of_coffee = self.coffee.get_coffee()
         new_amnt_of_coffee -= amnt_of_coffee
         self.coffee.set_coffee(new_amnt_of_coffee)
+        return
 
     def set_new_values_for_water_ingredients(self, amnt_of_water):
         # TODO docstring
         new_amnt_of_water = self.water.get_water()
         new_amnt_of_water -= amnt_of_water
         self.water.set_water(new_amnt_of_water)
+        return
 
 
 if __name__ == "__main__":
