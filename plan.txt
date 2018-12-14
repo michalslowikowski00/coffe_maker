@@ -1,4 +1,0 @@
-- wyniesc metody do klas
-- sqlite
--
-
