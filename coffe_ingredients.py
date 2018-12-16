@@ -2,7 +2,7 @@
 
 class CoffeeBeansTank:
     # TODO docstring
-    amnt_of_coffee = 1000
+    amnt_of_coffee: int = 1000
 
     def get_coffee(self):
         return self.amnt_of_coffee
@@ -17,7 +17,7 @@ class CoffeeBeansTank:
 
 class WaterTank:
     # TODO docstring
-    amnt_of_water = 1000
+    amnt_of_water: int = 1000
 
     def get_water(self):
         return self.amnt_of_water
