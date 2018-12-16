@@ -1,3 +1,4 @@
+import sqlite3
 
 
 class CoffeeBeansTank:
@@ -28,3 +29,42 @@ class WaterTank:
         else:
             print("No water, please fill the water tank")
             return False
+
+
+def set_new_values_for_coffee_ingredients(self, amnt_of_coffee):
+    # TODO doc string
+    new_amnt_of_coffee = self.coffee.get_coffee()
+    new_amnt_of_coffee -= amnt_of_coffee
+    self.coffee.set_coffee(new_amnt_of_coffee)
+    c.execute("UPDATE coffee SET value=(?) WHERE coffee='espresso'", new_amnt_of_coffee)
+
+
+
+conn = sqlite3.connect("coffee.db")
+c = conn.cursor()
+
+# c.execute("""CREATE TABLE coffee (
+#             coffee text,
+#             value integer
+#             )""")
+
+# c.execute("INSERT INTO coffee VALUES ('espresso', 1000)")
+# conn.commit()
+
+c.execute("SELECT * FROM coffee WHERE coffee='espresso'")
+# c.execute("UPDATE coffee SET value=1000 WHERE coffee='espresso'")
+
+print(c.fetchone())
+
+# conn.commit()
+conn.close()
+
+
+def update_coffee_in_database(new_value):
+
+    new = CoffeeBeansTank()
+    na = new.get_coffee()
+
+
+    c.execute("UPDATE coffee SET value=(?) WHERE coffee='espresso'", new_value)
+    conn.commit()

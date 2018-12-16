@@ -1,4 +1,4 @@
-"""  """
+""" Module with two types of coffee -- espresso and americano."""
 
 from coffe_ingredients import CoffeeBeansTank, WaterTank
 from messages import Messages
@@ -8,6 +8,7 @@ class Coffee(CoffeeBeansTank, WaterTank):
     """ Class with two methods -- espresso & americano.
         Four attributes which are coffee ingredients, values are integers.
         Attributes are used in both methods. """
+
     # def __init__(self, coffee, water):
     #     self.coffee = coffee   # take value from database?
     #     self.water = water    # take value from database?

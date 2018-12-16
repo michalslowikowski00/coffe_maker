@@ -80,7 +80,6 @@ class CoffeeMaker:
         new_amnt_of_coffee = self.coffee.get_coffee()
         new_amnt_of_coffee -= amnt_of_coffee
         self.coffee.set_coffee(new_amnt_of_coffee)
-        return
 
     def set_new_values_for_water_ingredients(self, amnt_of_water):
         # TODO doc string
