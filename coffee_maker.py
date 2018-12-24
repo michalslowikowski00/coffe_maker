@@ -1,9 +1,9 @@
-from coffee import Coffee
+from coffee import Espresso, Americano
 from menu import Menu
 from messages import Messages
 
 
-class MakeCoffee(Coffee, Menu):
+class MakeCoffee(Espresso, Americano, Menu):
 
     def make_coffee(self):
         """Make coffee based on customer order"""
@@ -16,6 +16,7 @@ class MakeCoffee(Coffee, Menu):
             print(Messages.checking_coffee)
             print(Messages.preparing_espresso)
             print(Messages.coffee_is_ready)
+            #TODO: set new amount of coffee
 
         elif order == "2":
             if not self.americano():
@@ -23,6 +24,7 @@ class MakeCoffee(Coffee, Menu):
             print(Messages.checking_coffee)
             print(Messages.preparing_americano)
             print(Messages.coffee_is_ready)
+            # TODO: set new amount of coffee
 
         elif order == "3":
             print(Messages.canceled_order)

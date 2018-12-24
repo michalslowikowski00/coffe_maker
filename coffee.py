@@ -18,12 +18,17 @@ class Coffee(CoffeeBeansTank, WaterTank):
     water_for_americano: int = 250
     coffee_for_americano: int = 10
 
+
+class Espresso(Coffee):
+    """  """
+
     def espresso(self):
         """ Method will check if amount of water or coffee is available in water or coffee tanks.
          Method will return False if one these ingredients is low than expected.
          Type of both ingredients -- water & coffee are integers.
          True will be return if both ingredients are enough.
          Messages are taken from Messages module."""
+
         if self.amnt_of_water < self.water_for_espresso:
             print(Messages.no_water)
             return False
@@ -32,12 +37,17 @@ class Coffee(CoffeeBeansTank, WaterTank):
             return False
         return True
 
+
+class Americano(Coffee):
+    """  """
+
     def americano(self):
         """ Method will check if amount of water or coffee is available in water or coffee tanks.
          Method will return False if one these ingredients is low than expected.
          Type of both ingredients -- water & coffee are integers.
          True will be return if both ingredients are enough.
          Messages are taken from Messages module. """
+
         if self.amnt_of_water < self.water_for_americano:
             print(Messages.no_water)
             return False

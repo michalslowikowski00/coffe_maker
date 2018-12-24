@@ -30,16 +30,6 @@ class WaterTank:
             print("No water, please fill the water tank")
             return False
 
-
-def set_new_values_for_coffee_ingredients(self, amnt_of_coffee):
-    # TODO doc string
-    new_amnt_of_coffee = self.coffee.get_coffee()
-    new_amnt_of_coffee -= amnt_of_coffee
-    self.coffee.set_coffee(new_amnt_of_coffee)
-    c.execute("UPDATE coffee SET value=(?) WHERE coffee='espresso'", new_amnt_of_coffee)
-
-
-
 conn = sqlite3.connect("coffee.db")
 c = conn.cursor()
 
@@ -60,11 +50,17 @@ print(c.fetchone())
 conn.close()
 
 
-def update_coffee_in_database(new_value):
+def update_coffee_in_database(self, new_value):
 
     new = CoffeeBeansTank()
     na = new.get_coffee()
+    self.c("UPDATE coffee SET value=(?) WHERE coffee='espresso'", new_value)
+    conn.commit() # commit to jest pobrazy rezultat
 
 
-    c.execute("UPDATE coffee SET value=(?) WHERE coffee='espresso'", new_value)
-    conn.commit()
+def set_new_values_for_coffee_ingredients(self, amnt_of_coffee):
+    # TODO doc string
+    new_amnt_of_coffee = self.coffee.get_coffee()
+    new_amnt_of_coffee -= amnt_of_coffee
+    self.coffee.set_coffee(new_amnt_of_coffee)
+    # c.execute("UPDATE coffee SET value=(?) WHERE coffee='espresso'", new_amnt_of_coffee)
