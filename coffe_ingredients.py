@@ -1,5 +1,7 @@
 import sqlite3
 
+from coffee import Coffee
+
 
 class CoffeeBeansTank:
     # TODO docstring
@@ -30,37 +32,15 @@ class WaterTank:
             print("No water, please fill the water tank")
             return False
 
-conn = sqlite3.connect("coffee.db")
-c = conn.cursor()
 
-# c.execute("""CREATE TABLE coffee (
-#             coffee text,
-#             value integer
-#             )""")
+class Ingredients(CoffeeBeansTank, WaterTank, Coffee):
 
-# c.execute("INSERT INTO coffee VALUES ('espresso', 1000)")
-# conn.commit()
-
-c.execute("SELECT * FROM coffee WHERE coffee='espresso'")
-# c.execute("UPDATE coffee SET value=1000 WHERE coffee='espresso'")
-
-print(c.fetchone())
-
-# conn.commit()
-conn.close()
+    def set_new_values_for_coffee_ingredients(self):
+        # TODO doc string
+        
+        # new_amnt_of_coffee = CoffeeBeansTank()
+        # new_amnt_of_coffee = new_amnt_of_coffee.get_coffee()
+        # new_amnt_of_coffee -= Coffee.coffee_for_espresso
+        # return CoffeeBeansTank.set_coffee(self.new_amnt_of_coffee)
 
 
-def update_coffee_in_database(self, new_value):
-
-    new = CoffeeBeansTank()
-    na = new.get_coffee()
-    self.c("UPDATE coffee SET value=(?) WHERE coffee='espresso'", new_value)
-    conn.commit() # commit to jest pobrazy rezultat
-
-
-def set_new_values_for_coffee_ingredients(self, amnt_of_coffee):
-    # TODO doc string
-    new_amnt_of_coffee = self.coffee.get_coffee()
-    new_amnt_of_coffee -= amnt_of_coffee
-    self.coffee.set_coffee(new_amnt_of_coffee)
-    # c.execute("UPDATE coffee SET value=(?) WHERE coffee='espresso'", new_amnt_of_coffee)
