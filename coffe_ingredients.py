@@ -37,7 +37,7 @@ class Ingredients(CoffeeBeansTank, WaterTank, Coffee):
 
     def set_new_values_for_coffee_ingredients(self):
         # TODO doc string
-        
+
         # new_amnt_of_coffee = CoffeeBeansTank()
         # new_amnt_of_coffee = new_amnt_of_coffee.get_coffee()
         # new_amnt_of_coffee -= Coffee.coffee_for_espresso
