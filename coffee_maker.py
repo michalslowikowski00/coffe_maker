@@ -17,6 +17,9 @@ class MakeCoffee(Espresso, Americano, Menu, Ingredients.NewIngredients, Coffee, 
             print(Messages.checking_coffee)
             print(Messages.preparing_espresso)
             print(Messages.coffee_is_ready)
+            self.set_new_values_for_coffee_ingredients(Coffee.coffee_for_espresso)
+            print(Ingredients.CoffeeBeansTank.get_coffee(self))
+
 
             #TODO: set new amount of coffee
 
