@@ -4,7 +4,7 @@ from menu import Menu
 from messages import Messages
 
 
-class MakeCoffee(Espresso, Americano, Menu, Ingredients.NewIngredients, Coffee):
+class MakeCoffee(Espresso, Americano, Menu, Ingredients.NewIngredients, Coffee, Ingredients.CoffeeBeansTank):
 
     def make_coffee(self):
         """Make coffee based on customer order"""
@@ -17,7 +17,6 @@ class MakeCoffee(Espresso, Americano, Menu, Ingredients.NewIngredients, Coffee):
             print(Messages.checking_coffee)
             print(Messages.preparing_espresso)
             print(Messages.coffee_is_ready)
-            # print(self.set_new_values_for_coffee_ingredients(self.coffee_for_espresso))
 
             #TODO: set new amount of coffee
 

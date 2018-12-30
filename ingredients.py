@@ -33,9 +33,16 @@ class Ingredients:
 
         def set_new_values_for_coffee_ingredients(self, amnt_coffee):
             # TODO doc string
-            new_coffee_ingr = self.get_coffee()
-            new_coffee_ingr -= amnt_coffee
-            self.set_coffee(amnt_coffee)
+
+            get_val = self.get_coffee()
+            get_val = get_val - amnt_coffee
+            self.set_coffee(get_val)
+
+
+            #
+            # new_coffee_ingr = self.get_coffee()
+            # new_coffee_ingr -= amnt_coffee
+            # self.set_coffee(amnt_coffee)
 
 
             # coffee_ingr -= new_amnt_coffee
