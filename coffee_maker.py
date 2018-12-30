@@ -1,10 +1,10 @@
-from coffe_ingredients import Ingredients
-from coffee import Espresso, Americano
+from coffee import Espresso, Americano, Coffee
+from ingredients import Ingredients
 from menu import Menu
 from messages import Messages
 
 
-class MakeCoffee(Espresso, Americano, Menu):
+class MakeCoffee(Espresso, Americano, Menu, Ingredients.NewIngredients, Coffee):
 
     def make_coffee(self):
         """Make coffee based on customer order"""
@@ -17,8 +17,8 @@ class MakeCoffee(Espresso, Americano, Menu):
             print(Messages.checking_coffee)
             print(Messages.preparing_espresso)
             print(Messages.coffee_is_ready)
-            print(Ingredients.set_new_values_for_coffee_ingredients)
-            Ingredients.set_new_values_for_coffee_ingredients()
+            # print(self.set_new_values_for_coffee_ingredients(self.coffee_for_espresso))
+
             #TODO: set new amount of coffee
 
         elif order == "2":

@@ -1,17 +1,13 @@
 """ Module with two types of coffee -- espresso and americano."""
 
-from coffe_ingredients import CoffeeBeansTank, WaterTank, Ingredients
+from ingredients import Ingredients
 from messages import Messages
 
 
-class Coffee(CoffeeBeansTank, WaterTank, Ingredients):
+class Coffee:
     """ Class with two methods -- espresso & americano.
         Four attributes which are coffee ingredients, values are integers.
         Attributes are used in both methods. """
-
-    # def __init__(self, coffee, water):
-    #     self.coffee = coffee   # take value from database?
-    #     self.water = water    # take value from database?
 
     water_for_espresso: int = 100
     coffee_for_espresso: int = 15
@@ -19,7 +15,7 @@ class Coffee(CoffeeBeansTank, WaterTank, Ingredients):
     coffee_for_americano: int = 10
 
 
-class Espresso(Coffee):
+class Espresso(Coffee, Ingredients.CoffeeBeansTank, Ingredients.WaterTank): # import ingredients
     """  """
 
     def espresso(self):
@@ -29,6 +25,7 @@ class Espresso(Coffee):
          True will be return if both ingredients are enough.
          Messages are taken from Messages module."""
 
+        # amnt_of_water id from ingredients
         if self.amnt_of_water < self.water_for_espresso:
             print(Messages.no_water)
             return False
@@ -38,7 +35,7 @@ class Espresso(Coffee):
         return True
 
 
-class Americano(Coffee):
+class Americano(Coffee, Ingredients.CoffeeBeansTank, Ingredients.WaterTank):
     """  """
 
     def americano(self):
