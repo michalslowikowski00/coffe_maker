@@ -4,7 +4,7 @@ from Coffee_Ingredients.ingredients import Ingredients
 from Messeges.messages import Messages
 
 
-class Espresso(Ingredients.Coffee, Ingredients.Beans, Ingredients.Water): # import ingredients
+class Espresso(Ingredients.Coffee, Ingredients.Beans, Ingredients.Water):
     """  """
 
     def espresso(self):
