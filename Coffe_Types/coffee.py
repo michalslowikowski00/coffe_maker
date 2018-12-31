@@ -1,21 +1,10 @@
 """ Module with two types of coffee -- espresso and americano."""
 
-from ingredients import Ingredients
-from messages import Messages
+from Coffee_Ingredients.ingredients import Ingredients
+from Messeges.messages import Messages
 
 
-class Coffee:
-    """ Class with two methods -- espresso & americano.
-        Four attributes which are coffee ingredients, values are integers.
-        Attributes are used in both methods. """
-
-    water_for_espresso: int = 100
-    coffee_for_espresso: int = 15
-    water_for_americano: int = 250
-    coffee_for_americano: int = 10
-
-
-class Espresso(Coffee, Ingredients.CoffeeBeansTank, Ingredients.WaterTank): # import ingredients
+class Espresso(Ingredients.Coffee, Ingredients.Beans, Ingredients.Water): # import ingredients
     """  """
 
     def espresso(self):
@@ -35,7 +24,7 @@ class Espresso(Coffee, Ingredients.CoffeeBeansTank, Ingredients.WaterTank): # im
         return True
 
 
-class Americano(Coffee, Ingredients.CoffeeBeansTank, Ingredients.WaterTank):
+class Americano(Ingredients.Coffee, Ingredients.Beans, Ingredients.Water):
     """  """
 
     def americano(self):
