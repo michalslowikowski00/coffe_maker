@@ -4,10 +4,23 @@ from Coffee_Ingredients.ingredients import Ingredients
 from Messeges.messages import Messages
 
 
-class Espresso(Ingredients.Coffee, Ingredients.Beans, Ingredients.Water):
+class Coffee:
+
+    def make_coffee(self):
+        pass
+
+
+class Espresso(Coffee, Ingredients.Coffee, Ingredients.Beans, Ingredients.Water):
     """  """
 
-    def espresso(self):
+    def __init__(self, bean, water):
+        self.bean = bean
+        self.water = water
+
+    bean_espresso = 15
+    water_espresso = 150
+
+    def make_espresso(self):
         """ Method will check if amount of water or coffee is available in water or coffee tanks.
          Method will return False if one these ingredients is low than expected.
          Type of both ingredients -- water & coffee are integers.
@@ -21,13 +34,13 @@ class Espresso(Ingredients.Coffee, Ingredients.Beans, Ingredients.Water):
         if self.amnt_of_coffee < self.coffee_for_espresso:
             print(Messages.no_coffee)
             return False
-        return True
+        return self.make_coffee()
 
 
 class Americano(Ingredients.Coffee, Ingredients.Beans, Ingredients.Water):
     """  """
 
-    def americano(self):
+    def make_americano(self):
         """ Method will check if amount of water or coffee is available in water or coffee tanks.
          Method will return False if one these ingredients is low than expected.
          Type of both ingredients -- water & coffee are integers.

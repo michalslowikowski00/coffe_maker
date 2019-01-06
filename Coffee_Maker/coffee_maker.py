@@ -4,7 +4,7 @@ from Menu.menu import Menu
 from Messeges.messages import Messages
 
 
-class MakeCoffee(Espresso, Americano, Menu, Ingredients.NewIngredients, Ingredients.Coffee, Ingredients.Beans):
+class MakeCoffee(Menu, Ingredients.NewIngredients, Ingredients.Coffee, Ingredients.Beans):
 
     def make_coffee(self):
         """Make coffee based on customer order"""
@@ -12,13 +12,13 @@ class MakeCoffee(Espresso, Americano, Menu, Ingredients.NewIngredients, Ingredie
         order = input("Order > ").lower()
 
         if order == "1":
-            if not self.espresso():
-                return False
+            esppresso = Espresso(Espresso.bean_espresso, Espresso.water_espresso)
             print(Messages.checking_coffee)
             print(Messages.preparing_espresso)
             print(Messages.coffee_is_ready)
             self.set_new_values_for_coffee_ingredients(Ingredients.Coffee.coffee_for_espresso)
             self.set_new_values_for_water_ingredients(Ingredients.Coffee.water_for_espresso)
+            return esppresso
             # TODO set new value to data base
 
         elif order == "2":
