@@ -13,7 +13,7 @@ class Ingredients:
 
     class Beans:
         # TODO docstring
-        amnt_of_coffee: int = 0
+        amnt_of_coffee: int = 1000
 
         def get_coffee(self):
             return self.amnt_of_coffee

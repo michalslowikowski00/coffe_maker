@@ -11,7 +11,9 @@ class MakeCoffee(Menu, Ingredients.NewIngredients, Ingredients.Coffee, Ingredien
         self.display_coffee_menu()
         order = input("Order > ").lower()
 
+        # TODO: add switch instead of if / else
         if order == "1":
+
             espresso = Espresso(Espresso.bean_espresso, Espresso.water_espresso)
             print(Messages.checking_coffee)
             print(Messages.preparing_espresso)
@@ -22,13 +24,13 @@ class MakeCoffee(Menu, Ingredients.NewIngredients, Ingredients.Coffee, Ingredien
             # TODO set new value to data base
 
         elif order == "2":
-            if not self.americano():
-                return False
+            americano = Americano(Americano.bean_americano, Americano.water_americano)
             print(Messages.checking_coffee)
             print(Messages.preparing_americano)
             print(Messages.coffee_is_ready)
             self.set_new_values_for_coffee_ingredients(Ingredients.Coffee.coffee_for_americano)
             self.set_new_values_for_water_ingredients(Ingredients.Coffee.water_for_americano)
+            return americano
             # TODO set new value to data base
 
         elif order == "3":

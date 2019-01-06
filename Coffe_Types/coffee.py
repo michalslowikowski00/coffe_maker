@@ -37,8 +37,15 @@ class Espresso(Coffee, Ingredients.Coffee, Ingredients.Beans, Ingredients.Water)
         return self.make_coffee()
 
 
-class Americano(Ingredients.Coffee, Ingredients.Beans, Ingredients.Water):
+class Americano(Coffee, Ingredients.Coffee, Ingredients.Beans, Ingredients.Water):
     """  """
+
+    def __init__(self, bean, water):
+        self.bean = bean
+        self.water = water
+
+    bean_americano = 15
+    water_americano = 150
 
     def make_americano(self):
         """ Method will check if amount of water or coffee is available in water or coffee tanks.
@@ -53,4 +60,4 @@ class Americano(Ingredients.Coffee, Ingredients.Beans, Ingredients.Water):
         if self.amnt_of_coffee < self.coffee_for_americano:
             print(Messages.no_coffee)
             return False
-        return True
+        return self.make_coffee()
