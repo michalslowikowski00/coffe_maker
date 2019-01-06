@@ -12,13 +12,13 @@ class MakeCoffee(Menu, Ingredients.NewIngredients, Ingredients.Coffee, Ingredien
         order = input("Order > ").lower()
 
         if order == "1":
-            esppresso = Espresso(Espresso.bean_espresso, Espresso.water_espresso)
+            espresso = Espresso(Espresso.bean_espresso, Espresso.water_espresso)
             print(Messages.checking_coffee)
             print(Messages.preparing_espresso)
             print(Messages.coffee_is_ready)
             self.set_new_values_for_coffee_ingredients(Ingredients.Coffee.coffee_for_espresso)
             self.set_new_values_for_water_ingredients(Ingredients.Coffee.water_for_espresso)
-            return esppresso
+            return espresso
             # TODO set new value to data base
 
         elif order == "2":
