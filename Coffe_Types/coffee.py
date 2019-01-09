@@ -13,12 +13,9 @@ class Coffee:
 class Espresso(Coffee, Ingredients.Coffee, Ingredients.Beans, Ingredients.Water):
     """  """
 
-    def __init__(self, bean, water):
+    def __init__(self, bean=15, water=150):
         self.bean = bean
         self.water = water
-
-    bean_espresso = 15
-    water_espresso = 150
 
     def make_espresso(self):
         """ Method will check if amount of water or coffee is available in water or coffee tanks.
@@ -40,12 +37,9 @@ class Espresso(Coffee, Ingredients.Coffee, Ingredients.Beans, Ingredients.Water)
 class Americano(Coffee, Ingredients.Coffee, Ingredients.Beans, Ingredients.Water):
     """  """
 
-    def __init__(self, bean, water):
+    def __init__(self, bean=10, water=250):
         self.bean = bean
         self.water = water
-
-    bean_americano = 15
-    water_americano = 150
 
     def make_americano(self):
         """ Method will check if amount of water or coffee is available in water or coffee tanks.

@@ -13,8 +13,7 @@ class MakeCoffee(Menu, Ingredients.NewIngredients, Ingredients.Coffee, Ingredien
 
         # TODO: add switch instead of if / else
         if order == "1":
-
-            espresso = Espresso(Espresso.bean_espresso, Espresso.water_espresso)
+            espresso = Espresso()
             print(Messages.checking_coffee)
             print(Messages.preparing_espresso)
             print(Messages.coffee_is_ready)
@@ -24,7 +23,7 @@ class MakeCoffee(Menu, Ingredients.NewIngredients, Ingredients.Coffee, Ingredien
             # TODO set new value to data base
 
         elif order == "2":
-            americano = Americano(Americano.bean_americano, Americano.water_americano)
+            americano = Americano()
             print(Messages.checking_coffee)
             print(Messages.preparing_americano)
             print(Messages.coffee_is_ready)
