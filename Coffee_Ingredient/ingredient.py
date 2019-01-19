@@ -1,5 +1,5 @@
 
-class Ingredients:
+class Ingredient:
 
     class Coffee:
         """ Class with two methods -- espresso & americano.
