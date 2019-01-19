@@ -19,8 +19,8 @@ class CoffeeMaker(Menu, Ingredient.NewIngredients, Ingredient.Coffee, Ingredient
             print(Messages.preparing_espresso)
             print(Messages.coffee_is_ready)
             self.set_new_values_for_coffee_ingredients(Ingredient.Coffee.coffee_for_espresso)
-            print(Ingredient.Beans.get_coffee(self))
             self.set_new_values_for_water_ingredients(Ingredient.Coffee.water_for_espresso)
+            print(Ingredient.Beans.get_coffee(self))
             print(Ingredient.Water.get_water(self))
             return espresso
             # TODO set new value to data base
