@@ -13,7 +13,7 @@ class Ingredient:
 
     class Beans:
         # TODO docstring
-        amnt_of_coffee: int = 1000
+        amnt_of_coffee: int = 10
 
         def get_coffee(self):
             return self.amnt_of_coffee
@@ -22,12 +22,11 @@ class Ingredient:
             if coffee >= 100:
                 self.amnt_of_coffee = coffee
             else:
-                print("No coffee, please fill the coffee beans")
                 return False
 
     class Water:
         # TODO docstring
-        amnt_of_water = 1000
+        amnt_of_water = 1
 
         def get_water(self):
             return self.amnt_of_water
@@ -36,7 +35,6 @@ class Ingredient:
             if water >= 100:
                 self.amnt_of_water = water
             else:
-                print("No water, please fill the water tank")
                 return False
 
     class NewIngredients(Beans, Water):
