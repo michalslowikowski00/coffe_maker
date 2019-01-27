@@ -15,8 +15,8 @@ class CoffeeMaker(Menu, Ingredient.NewIngredients, Ingredient.Coffee, Ingredient
         if order == "1":
             espresso = Espresso()
             espresso.make_coffee(espresso.bean, espresso.water)
-            # self.set_new_values_for_coffee_ingredients(Ingredient.Coffee.coffee_for_espresso)
-            # self.set_new_values_for_water_ingredients(Ingredient.Coffee.water_for_espresso)
+            self.set_new_values_for_coffee_ingredients(Ingredient.Coffee.coffee_for_espresso)
+            self.set_new_values_for_water_ingredients(Ingredient.Coffee.water_for_espresso)
             print(Ingredient.Beans.get_coffee(self))
             print(Ingredient.Water.get_water(self))
             print(espresso)
@@ -25,10 +25,11 @@ class CoffeeMaker(Menu, Ingredient.NewIngredients, Ingredient.Coffee, Ingredient
 
         elif order == "2":
             americano = Americano()
+            americano.make_coffee(americano.bean, americano.water)
             self.set_new_values_for_coffee_ingredients(Ingredient.Coffee.coffee_for_americano)
             self.set_new_values_for_water_ingredients(Ingredient.Coffee.water_for_americano)
-            # print(Ingredient.Beans.get_coffee(self))
-            # print(Ingredient.Water.get_water(self))
+            print(Ingredient.Beans.get_coffee(self))
+            print(Ingredient.Water.get_water(self))
             return americano
             # TODO set new value to data base
 

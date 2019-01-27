@@ -1,5 +1,5 @@
 class Messages:
-    """ Module with messages that are used in modules coffee.py and coffee_maker. """
+    """ Module with messages that are used in modules coffee.py and coffee_maker.py. """
     no_water = "No water, fill the water tank"
     no_coffee = "No coffee beans, fill the coffee tank"
     checking_coffee = "Checking coffee..."

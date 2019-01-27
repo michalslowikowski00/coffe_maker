@@ -5,12 +5,13 @@ from Messeges.messages import Messages
 
 
 class Coffee:
+    """Abstract class with one method for checking if
+    coffee ingredients are available for preparing coffee.
+    Method make_coffee returns boolean value."""
 
-    # TODO: add ojects for coffee and water
-    def make_coffee(self, bean, water):
-
+    @staticmethod
+    def make_coffee(bean, water):
         ingredient = Ingredient()
-
         result = True
 
         if ingredient.Beans.amnt_of_coffee < bean:
@@ -20,11 +21,14 @@ class Coffee:
             print("No water, please fill the water tank")
             result = False
         if result:
+
             print(Messages.checking_coffee)
             print(Messages.preparing_espresso)
             print(Messages.coffee_is_ready)
             return result
         return True
+
+        # todo: add set new values in this
 
         # if ingredient.Beans.amnt_of_coffee < bean:
         #     print("No coffee, please fill the coffee beans")
@@ -50,7 +54,7 @@ class Coffee:
         #     return False
 
 class Espresso(Coffee):
-    """  """
+    """Class with default values for bean and water used in CoffeeMaker"""
 
     def __init__(self, bean=15, water=150):
         self.bean = bean
@@ -58,7 +62,7 @@ class Espresso(Coffee):
 
 
 class Americano(Coffee):
-    """  """
+    """Class with default values for bean and water used in CoffeeMaker"""
 
     def __init__(self, bean=10, water=250):
         self.bean = bean
