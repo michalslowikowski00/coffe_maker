@@ -1,43 +1,46 @@
 """ Module with two types of coffee -- espresso and americano."""
 
-from Coffee_Ingredients.ingredients import Ingredients
+from Coffee_Ingredient.ingredient import Ingredient
 from Messeges.messages import Messages
 
 
-class Espresso(Ingredients.Coffee, Ingredients.Beans, Ingredients.Water):
-    """  """
+class Coffee:
+    """Abstract class with one method for checking if
+    coffee ingredients are available for preparing coffee.
+    Method make_coffee returns boolean value."""
 
-    def espresso(self):
-        """ Method will check if amount of water or coffee is available in water or coffee tanks.
-         Method will return False if one these ingredients is low than expected.
-         Type of both ingredients -- water & coffee are integers.
-         True will be return if both ingredients are enough.
-         Messages are taken from Messages module."""
+    @staticmethod
+    def make_coffee(bean, water):
+        ingredient = Ingredient()
+        result = True
 
-        # amnt_of_water id from ingredients
-        if self.amnt_of_water < self.water_for_espresso:
-            print(Messages.no_water)
-            return False
-        if self.amnt_of_coffee < self.coffee_for_espresso:
+        if ingredient.Beans.amnt_of_coffee < bean:
+            result = False
             print(Messages.no_coffee)
-            return False
-        return True
-
-
-class Americano(Ingredients.Coffee, Ingredients.Beans, Ingredients.Water):
-    """  """
-
-    def americano(self):
-        """ Method will check if amount of water or coffee is available in water or coffee tanks.
-         Method will return False if one these ingredients is low than expected.
-         Type of both ingredients -- water & coffee are integers.
-         True will be return if both ingredients are enough.
-         Messages are taken from Messages module. """
-
-        if self.amnt_of_water < self.water_for_americano:
+        if ingredient.Water.amnt_of_water < water:
             print(Messages.no_water)
-            return False
-        if self.amnt_of_coffee < self.coffee_for_americano:
-            print(Messages.no_coffee)
-            return False
-        return True
+            result = False
+        if result:
+            print(Messages.checking_coffee)
+            print(Messages.preparing_coffee)
+            print(Messages.coffee_is_ready)
+            return result
+        return result
+
+        # todo: add set new values in this
+
+
+class Espresso(Coffee):
+    """Class with default values for bean and water used in CoffeeMaker"""
+
+    def __init__(self, bean=15, water=150):
+        self.bean = bean
+        self.water = water
+
+
+class Americano(Coffee):
+    """Class with default values for bean and water used in CoffeeMaker"""
+
+    def __init__(self, bean=10, water=250):
+        self.bean = bean
+        self.water = water

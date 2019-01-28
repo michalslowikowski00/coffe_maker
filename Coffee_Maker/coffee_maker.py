@@ -1,42 +1,37 @@
 from Coffe_Types.coffee import Espresso, Americano
-from Coffee_Ingredients.ingredients import Ingredients
+from Coffee_Ingredient.ingredient import Ingredient
 from Menu.menu import Menu
 from Messeges.messages import Messages
 
 
-class MakeCoffee(Espresso, Americano, Menu, Ingredients.NewIngredients, Ingredients.Coffee, Ingredients.Beans):
+class CoffeeMaker(Menu, Ingredient.NewIngredients, Ingredient.Coffee, Ingredient.Beans):
 
     def make_coffee(self):
         """Make coffee based on customer order"""
         self.display_coffee_menu()
-        order = input("Order > ").lower()
+        order = input("Order: ")
 
         if order == "1":
-            if not self.espresso():
-                return False
-            print(Messages.checking_coffee)
-            print(Messages.preparing_espresso)
-            print(Messages.coffee_is_ready)
-            self.set_new_values_for_coffee_ingredients(Ingredients.Coffee.coffee_for_espresso)
-            self.set_new_values_for_water_ingredients(Ingredients.Coffee.water_for_espresso)
-            # TODO set new value to data base
+            espresso = Espresso()
+            espresso.make_coffee(espresso.bean, espresso.water)
+            self.set_new_values_for_coffee_ingredients(Ingredient.Coffee.coffee_for_espresso)
+            self.set_new_values_for_water_ingredients(Ingredient.Coffee.water_for_espresso)
+            return espresso
 
         elif order == "2":
-            if not self.americano():
-                return False
-            print(Messages.checking_coffee)
-            print(Messages.preparing_americano)
-            print(Messages.coffee_is_ready)
-            self.set_new_values_for_coffee_ingredients(Ingredients.Coffee.coffee_for_americano)
-            self.set_new_values_for_water_ingredients(Ingredients.Coffee.water_for_americano)
-            # TODO set new value to data base
+            americano = Americano()
+            americano.make_coffee(americano.bean, americano.water)
+            self.set_new_values_for_coffee_ingredients(Ingredient.Coffee.coffee_for_americano)
+            self.set_new_values_for_water_ingredients(Ingredient.Coffee.water_for_americano)
+            return americano
 
         elif order == "3":
             print(Messages.canceled_order)
+
         else:
             print(Messages.no_coffee_selected)
 
 
 if __name__ == "__main__":
-    app = MakeCoffee()
+    app = CoffeeMaker()
     app.make_coffee()

@@ -1,5 +1,5 @@
 
-class Ingredients:
+class Ingredient:
 
     class Coffee:
         """ Class with two methods -- espresso & americano.
@@ -22,7 +22,6 @@ class Ingredients:
             if coffee >= 100:
                 self.amnt_of_coffee = coffee
             else:
-                print("No coffee, please fill the coffee beans")
                 return False
 
     class Water:
@@ -36,7 +35,6 @@ class Ingredients:
             if water >= 100:
                 self.amnt_of_water = water
             else:
-                print("No water, please fill the water tank")
                 return False
 
     class NewIngredients(Beans, Water):
