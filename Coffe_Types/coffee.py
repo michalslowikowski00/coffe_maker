@@ -1,7 +1,8 @@
 """ Module with two types of coffee -- espresso and americano."""
 
 from Coffee_Ingredient.ingredient import Ingredient
-from Messeges.messages import Messages
+from Exception.custom_exception import Message, NoWater
+from Exception.custom_exception import NoCoffee
 
 
 class Coffee:
@@ -14,20 +15,28 @@ class Coffee:
         ingredient = Ingredient()
         result = True
 
-        if ingredient.Beans.amnt_of_coffee < bean:
-            result = False
-            print(Messages.no_coffee)
-        if ingredient.Water.amnt_of_water < water:
-            print(Messages.no_water)
-            result = False
-        if result:
-            print(Messages.checking_coffee)
-            print(Messages.preparing_coffee)
-            print(Messages.coffee_is_ready)
-            return result
-        return result
+        while result:
+            try:
+                if ingredient.Beans.amnt_of_coffee < bean:
+                    result = False
+                    raise NoCoffee
+                if ingredient.Water.amnt_of_water < water:
+                    result = False
+                    raise NoWater
+                if result:
+                    print(Message.checking_coffee_message)
+                    print(Message.preparing_coffee_message)
+                    print(Message.coffee_is_ready_message)
+                    return result
+                return result
+            except NoCoffee:
+                print(NoCoffee.no_coffee_message)
+            except NoWater:
+                print(NoWater.no_water_message)
+            finally:
+                pass
 
-        # todo: add set new values in this
+            # todo: add set new values in this
 
 
 class Espresso(Coffee):

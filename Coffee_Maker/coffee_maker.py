@@ -1,7 +1,7 @@
 from Coffe_Types.coffee import Espresso, Americano
 from Coffee_Ingredient.ingredient import Ingredient
 from Menu.menu import Menu
-from Messeges.messages import Messages
+from Exception.custom_exception import Message
 
 
 class CoffeeMaker(Menu, Ingredient.NewIngredients, Ingredient.Coffee, Ingredient.Beans):
@@ -17,19 +17,16 @@ class CoffeeMaker(Menu, Ingredient.NewIngredients, Ingredient.Coffee, Ingredient
             self.set_new_values_for_coffee_ingredients(Ingredient.Coffee.coffee_for_espresso)
             self.set_new_values_for_water_ingredients(Ingredient.Coffee.water_for_espresso)
             return espresso
-
         elif order == "2":
             americano = Americano()
             americano.make_coffee(americano.bean, americano.water)
             self.set_new_values_for_coffee_ingredients(Ingredient.Coffee.coffee_for_americano)
             self.set_new_values_for_water_ingredients(Ingredient.Coffee.water_for_americano)
             return americano
-
         elif order == "3":
-            print(Messages.canceled_order)
-
+            print(Message.canceled_order_message)
         else:
-            print(Messages.no_coffee_selected)
+            print(Message.no_coffee_selected_message)
 
 
 if __name__ == "__main__":

@@ -1,3 +1,5 @@
+from Exception.custom_exception import NoCoffee
+
 
 class Ingredient:
 
@@ -13,7 +15,7 @@ class Ingredient:
 
     class Beans:
         # TODO docstring
-        amnt_of_coffee: int = 1000
+        amnt_of_coffee: int = 0
 
         def get_coffee(self):
             return self.amnt_of_coffee
@@ -22,11 +24,11 @@ class Ingredient:
             if coffee >= 100:
                 self.amnt_of_coffee = coffee
             else:
-                return False
+                raise NoCoffee
 
     class Water:
         # TODO docstring
-        amnt_of_water = 1000
+        amnt_of_water = 0
 
         def get_water(self):
             return self.amnt_of_water
