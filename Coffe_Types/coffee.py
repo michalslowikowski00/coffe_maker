@@ -12,29 +12,27 @@ class Coffee:
 
     @staticmethod
     def make_coffee(bean, water):
-        ingredient = Ingredient()
+        i = Ingredient()
         result = True
 
         while result:
             try:
-                if ingredient.Beans.amnt_of_coffee < bean:
+                if i.Beans.amnt_of_coffee < bean:
                     result = False
                     raise NoCoffee
-                if ingredient.Water.amnt_of_water < water:
+                if i.Water.amnt_of_water < water:
                     result = False
                     raise NoWater
-                if result:
-                    print(Message.checking_coffee_message)
-                    print(Message.preparing_coffee_message)
-                    print(Message.coffee_is_ready_message)
-                    return result
-                return result
             except NoCoffee:
                 print(NoCoffee.no_coffee_message)
             except NoWater:
                 print(NoWater.no_water_message)
-            finally:
-                pass
+            else:
+                result = True
+                print(Message.checking_coffee_message)
+                print(Message.preparing_coffee_message)
+                print(Message.coffee_is_ready_message)
+            return result
 
             # todo: add set new values in this
 
