@@ -9,17 +9,14 @@ from _locale import Error
 #     no_coffee_selected = "No coffee selected. Please select coffee."
 
 
-class NoCoffee(Exception):
+class NoCoffee(BaseException):
     """Raised when the value of amnt_of_bean in Ingredient.Beans is too small"""
     no_coffee_message = "No coffee beans, fill the coffee tank"
-    pass
 
 
-class NoWater(Exception):
-    """Raised when the value of amnt_of_water in Ingredient.Water is too small"""
-
+class NoWater(BaseException):
+    """Raised when the value of amnt_of_water in Ingredient.Water is less then 100"""
     no_water_message = "No water, fill the water tank"
-    pass
 
 
 class Message:

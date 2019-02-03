@@ -3,16 +3,6 @@ from Exception.custom_exception import NoCoffee, NoWater
 
 class Ingredient:
 
-    class Coffee:
-        """ Class with two methods -- espresso & americano.
-            Four attributes which are coffee ingredients, values are integers.
-            Attributes are used in both methods. """
-
-        water_for_espresso: int = 100
-        coffee_for_espresso: int = 15
-        water_for_americano: int = 250
-        coffee_for_americano: int = 10
-
     class Beans:
         # TODO docstring
         amnt_of_coffee: int = 1000
@@ -24,7 +14,7 @@ class Ingredient:
             if coffee >= 100:
                 self.amnt_of_coffee = coffee
             else:
-                raise NoCoffee(coffee)
+                raise NoCoffee("Amount of Coffee in class Beans: {0}".format(self.amnt_of_coffee))
 
     class Water:
         # TODO docstring
@@ -37,10 +27,9 @@ class Ingredient:
             if water >= 100:
                 self.amnt_of_water = water
             else:
-                raise NoWater(water)
+                raise NoWater("Amount of Water in class Water: {0}".format(self.amnt_of_water))
 
     class NewIngredients(Beans, Water):
-
         def set_new_values_for_coffee_ingredients(self, amnt_coffee):
             # TODO doc string
             new_value_for_coffee = self.get_coffee()
