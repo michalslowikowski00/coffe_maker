@@ -1,10 +1,10 @@
-from Coffe_Types.coffee import Espresso, Americano
-from Coffee_Ingredient.ingredient import Ingredient
+from coffe_types.coffee import Espresso, Americano
+from coffee_ingredient.ingredient import Ingredient
 from Menu.menu import Menu
-from Messeges.messages import Messages
+from Exception.custom_exception import Message
 
 
-class CoffeeMaker(Menu, Ingredient.NewIngredients, Ingredient.Coffee, Ingredient.Beans):
+class CoffeeMaker(Menu, Ingredient.NewIngredients):
 
     def make_coffee(self):
         """Make coffee based on customer order"""
@@ -12,24 +12,21 @@ class CoffeeMaker(Menu, Ingredient.NewIngredients, Ingredient.Coffee, Ingredient
         order = input("Order: ")
 
         if order == "1":
-            espresso = Espresso()
-            espresso.make_coffee(espresso.bean, espresso.water)
-            self.set_new_values_for_coffee_ingredients(Ingredient.Coffee.coffee_for_espresso)
-            self.set_new_values_for_water_ingredients(Ingredient.Coffee.water_for_espresso)
-            return espresso
-
+            e = Espresso()
+            e.make_coffee(e.bean, e.water)
+            self.set_new_values_for_coffee_ingredients(e.bean)
+            self.set_new_values_for_water_ingredients(e.water)
+            return e
         elif order == "2":
-            americano = Americano()
-            americano.make_coffee(americano.bean, americano.water)
-            self.set_new_values_for_coffee_ingredients(Ingredient.Coffee.coffee_for_americano)
-            self.set_new_values_for_water_ingredients(Ingredient.Coffee.water_for_americano)
-            return americano
-
+            a = Americano()
+            a.make_coffee(a.bean, a.water)
+            self.set_new_values_for_coffee_ingredients(a.bean)
+            self.set_new_values_for_water_ingredients(a.water)
+            return a
         elif order == "3":
-            print(Messages.canceled_order)
-
+            print(Message.canceled_order_message)
         else:
-            print(Messages.no_coffee_selected)
+            print(Message.no_coffee_selected_message)
 
 
 if __name__ == "__main__":
