@@ -12,17 +12,20 @@ class Coffee:
     Method make_coffee returns boolean value.
     Method returns """
 
-    @staticmethod
-    def make_coffee(bean, water):
+    bean = None
+    water = None
+
+    def make_coffee(self):
         _i = Ingredient()
         _result = True
 
+
         while _result:
             try:
-                if _i.Beans.amnt_of_coffee <= bean:
+                if _i.Beans.amnt_of_coffee <= self.bean:
                     _result = False
                     raise NoCoffee
-                if _i.Water.amnt_of_water <= water:
+                if _i.Water.amnt_of_water <= self.water:
                     _result = False
                     raise NoWater
             except NoCoffee:
@@ -36,7 +39,7 @@ class Coffee:
                 print(Message.coffee_is_ready_message)
             return _result
             # todo: add set new values in this
-
+1
 
 class Espresso(Coffee):
     """Class which is Espresso object.
@@ -46,6 +49,7 @@ class Espresso(Coffee):
     def __init__(self, bean=15, water=150):
         self.bean = bean
         self.water = water
+        # super
 
 
 class Americano(Coffee):

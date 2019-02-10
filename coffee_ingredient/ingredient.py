@@ -1,7 +1,12 @@
 from Exception.custom_exception import NoCoffee, NoWater
 
 
-class Ingredient:
+class Ingredient: #abstrakcja
+
+    # ile jest
+    # ile potrezba
+    # jaki ejst przepis
+    #
 
     class Beans:
         # TODO docstring
@@ -9,6 +14,13 @@ class Ingredient:
 
         def get_coffee(self):
             return self.amnt_of_coffee
+
+        # if _i.Beans.amnt_of_coffee <= bean:
+        #     _result = False
+        #     raise NoCoffee
+        # if _i.Water.amnt_of_water <= water:
+        #     _result = False
+        #     raise NoWater
 
         def set_coffee(self, coffee):
             if coffee >= 100:
@@ -32,7 +44,7 @@ class Ingredient:
     class NewIngredients(Beans, Water):
         def set_new_values_for_coffee_ingredients(self, amnt_coffee):
             # TODO doc string
-            new_value_for_coffee = self.get_coffee()
+            new_value_for_coffee = self.get_coffee() #amntofcoffe
             new_value_for_coffee -= amnt_coffee
             self.set_coffee(new_value_for_coffee)
 
