@@ -17,26 +17,25 @@ class Coffee:
 
     def make_coffee(self):
         _i = Ingredient()
-        _e = Espresso()
         _result = True
 
         while _result:
             try:
-                if _i.isBeanContainerEmpty(_e.bean):
-                    _result = False
-                    raise NoCoffee
-                if _i.isWaterContainerEmpty:
-                    _result = False
-                    raise NoWater
+                _i.isBeanContainerEmpty()
+                _result = False
+                raise NoCoffee
+                # if _i.isWaterContainerEmpty:
+                #     _result = False
+                #     raise NoWater
             except NoCoffee:
                 logging.exception(NoCoffee.no_coffee_message)
             except NoWater:
                 logging.exception(NoWater.no_water_message)
-            else:
-                _result = True
-                print(Message.checking_coffee_message)
-                print(Message.preparing_coffee_message)
-                print(Message.coffee_is_ready_message)
+            # else:
+            #     _result = True
+            #     print(Message.checking_coffee_message)
+            #     print(Message.preparing_coffee_message)
+            #     print(Message.coffee_is_ready_message)
             return _result
             # todo: add set new values in this
 
