@@ -19,7 +19,6 @@ class Coffee:
         _i = Ingredient()
         _result = True
 
-
         while _result:
             try:
                 if _i.Beans.amnt_of_coffee <= self.bean:
