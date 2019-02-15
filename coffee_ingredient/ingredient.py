@@ -3,10 +3,8 @@ from Exception.custom_exception import NoCoffee
 
 class Ingredient:
 
-    @property
     def isBeanContainerEmpty(self, coffee_ingr_needed):
-        b = BeanContainer
-        b.amount_of_bean = None
+        b = BeanContainer()
 
         if b.amount_of_bean < coffee_ingr_needed:
             raise NoCoffee
@@ -24,7 +22,7 @@ class Ingredient:
 
 
 class BeanContainer(Ingredient):
-    def __init__(self, amount_of_bean=1000):
+    def __init__(self, amount_of_bean=0):
         self.amount_of_bean = amount_of_bean
 
 

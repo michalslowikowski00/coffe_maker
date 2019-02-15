@@ -22,7 +22,7 @@ class Coffee:
 
         while _result:
             try:
-                if _i.isBeanContainerEmpty() < _e.bean:
+                if _i.isBeanContainerEmpty(_e.bean):
                     _result = False
                     raise NoCoffee
                 if _i.isWaterContainerEmpty:
