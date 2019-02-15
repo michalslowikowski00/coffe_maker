@@ -11,10 +11,6 @@ class Ingredient:
         return
 
 
-
-        # return
-        # yield
-
     @property
     def isWaterContainerEmpty(self):
         return
@@ -22,7 +18,7 @@ class Ingredient:
 
 
 class BeanContainer(Ingredient):
-    def __init__(self, amount_of_bean=0):
+    def __init__(self, amount_of_bean=1000):
         self.amount_of_bean = amount_of_bean
 
 
@@ -33,5 +29,3 @@ class WaterContainer(Ingredient):
 
 if __name__ == "__main__":
     pass
-
-
