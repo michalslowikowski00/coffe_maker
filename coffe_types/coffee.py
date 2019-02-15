@@ -19,7 +19,6 @@ class Coffee:
         _i = Ingredient()
         _result = True
 
-
         while _result:
             try:
                 if _i.Beans.amnt_of_coffee <= self.bean:
@@ -39,7 +38,7 @@ class Coffee:
                 print(Message.coffee_is_ready_message)
             return _result
             # todo: add set new values in this
-1
+
 
 class Espresso(Coffee):
     """Class which is Espresso object.
@@ -49,7 +48,6 @@ class Espresso(Coffee):
     def __init__(self, bean=15, water=150):
         self.bean = bean
         self.water = water
-        # super
 
 
 class Americano(Coffee):
