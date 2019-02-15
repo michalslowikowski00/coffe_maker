@@ -1,20 +1,25 @@
+from coffe_types.coffee import Coffee
 from Exception.custom_exception import NoCoffee
+
 
 
 class Ingredient:
 
-    def isBeanContainerEmpty(self, coffee_ingr_needed):
+    def isBeanContainerEmpty(self):
         b = BeanContainer()
+        c = Coffee()
 
-        if b.amount_of_bean < coffee_ingr_needed:
+        if b.amount_of_bean < c.bean:
             raise NoCoffee
-        return
-
+        return Ingredient
 
     @property
     def isWaterContainerEmpty(self):
         return
         # yield
+
+    def pr(self):
+        print()
 
 
 class BeanContainer(Ingredient):
