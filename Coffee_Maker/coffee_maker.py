@@ -4,9 +4,8 @@ from Menu.menu import Menu
 from Exception.custom_exception import Message
 
 
-class CoffeeMaker(Menu, Ingredient.NewIngredients):
+class CoffeeMaker(Menu, Ingredient):
 
-    # TODO: exception, while na menu, tank, testy
     def make_coffee(self):
         """Make coffee based on customer order"""
         self.display_coffee_menu()
@@ -15,14 +14,14 @@ class CoffeeMaker(Menu, Ingredient.NewIngredients):
         if order == "1":
             e = Espresso()
             e.make_coffee()
-            self.set_new_values_for_coffee_ingredients(e.bean)
-            self.set_new_values_for_water_ingredients(e.water)
+            # self.set_new_values_for_coffee_ingredients(e.bean)
+            # self.set_new_values_for_water_ingredients(e.water)
             return e
         elif order == "2":
             a = Americano()
             a.make_coffee()
-            self.set_new_values_for_coffee_ingredients(a.bean)
-            self.set_new_values_for_water_ingredients(a.water)
+            # self.set_new_values_for_coffee_ingredients(a.bean)
+            # self.set_new_values_for_water_ingredients(a.water)
             return a
         elif order == "3":
             print(Message.canceled_order_message)

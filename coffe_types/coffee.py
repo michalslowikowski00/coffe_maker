@@ -17,14 +17,15 @@ class Coffee:
 
     def make_coffee(self):
         _i = Ingredient()
+        _e = Espresso()
         _result = True
 
         while _result:
             try:
-                if _i.Beans.amnt_of_coffee <= self.bean:
+                if _i.isBeanContainerEmpty() < _e.bean:
                     _result = False
                     raise NoCoffee
-                if _i.Water.amnt_of_water <= self.water:
+                if _i.isWaterContainerEmpty:
                     _result = False
                     raise NoWater
             except NoCoffee:
