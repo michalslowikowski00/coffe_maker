@@ -21,24 +21,24 @@ class Coffee:
 
         while _result:
             try:
-                if _i.Beans.amnt_of_coffee <= self.bean:
-                    _result = False
-                    raise NoCoffee
-                if _i.Water.amnt_of_water <= self.water:
-                    _result = False
-                    raise NoWater
+                _i.isBeanContainerEmpty()
+                _result = False
+                raise NoCoffee
+                # if _i.isWaterContainerEmpty:
+                #     _result = False
+                #     raise NoWater
             except NoCoffee:
                 logging.exception(NoCoffee.no_coffee_message)
             except NoWater:
                 logging.exception(NoWater.no_water_message)
-            else:
-                _result = True
-                print(Message.checking_coffee_message)
-                print(Message.preparing_coffee_message)
-                print(Message.coffee_is_ready_message)
+            # else:
+            #     _result = True
+            #     print(Message.checking_coffee_message)
+            #     print(Message.preparing_coffee_message)
+            #     print(Message.coffee_is_ready_message)
             return _result
             # todo: add set new values in this
-1
+
 
 class Espresso(Coffee):
     """Class which is Espresso object.
@@ -48,7 +48,6 @@ class Espresso(Coffee):
     def __init__(self, bean=15, water=150):
         self.bean = bean
         self.water = water
-        # super
 
 
 class Americano(Coffee):

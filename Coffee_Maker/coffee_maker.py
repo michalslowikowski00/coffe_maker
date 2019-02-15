@@ -4,34 +4,32 @@ from Menu.menu import Menu
 from Exception.custom_exception import Message
 
 
-class CoffeeMaker(Menu, Ingredient.NewIngredients):
-    #tank
-    #
-    # TODO: exception, while na menu, tank, switch, testy
-    while True:
-        def make_coffee(self):
-            """Make coffee based on customer order"""
-            self.display_coffee_menu()
-            order = input("Order: ")
+class CoffeeMaker(Menu, Ingredient):
 
-            if order == "1":
-                e = Espresso()
-                e.make_coffee()
-                self.set_new_values_for_coffee_ingredients(e.bean)
-                self.set_new_values_for_water_ingredients(e.water)
-                return e
-            elif order == "2":
-                a = Americano()
-                a.make_coffee()
-                self.set_new_values_for_coffee_ingredients(a.bean)
-                self.set_new_values_for_water_ingredients(a.water)
-                return a
-            elif order == "3":
-                print(Message.canceled_order_message)
-            else:
-                print(Message.no_coffee_selected_message)
+    def make_coffee(self):
+        """Make coffee based on customer order"""
+        self.display_coffee_menu()
+        order = input("Order: ")
+
+        if order == "1":
+            e = Espresso()
+            e.make_coffee()
+            # self.set_new_values_for_coffee_ingredients(e.bean)
+            # self.set_new_values_for_water_ingredients(e.water)
+            return e
+        elif order == "2":
+            a = Americano()
+            a.make_coffee()
+            # self.set_new_values_for_coffee_ingredients(a.bean)
+            # self.set_new_values_for_water_ingredients(a.water)
+            return a
+        elif order == "3":
+            print(Message.canceled_order_message)
+        else:
+            print(Message.no_coffee_selected_message)
 
 
 if __name__ == "__main__":
     app = CoffeeMaker()
-    app.make_coffee()
+    while True:
+        app.make_coffee()
