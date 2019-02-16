@@ -2,8 +2,8 @@
 import logging
 
 from coffee_ingredient.ingredient import Ingredient, BeanContainer, WaterContainer
-from Exception.custom_exception import Message, NoWater
-from Exception.custom_exception import NoCoffee
+from exception.custom_exception import Message, NoWater
+from exception.custom_exception import NoCoffee
 
 
 class Coffee:

@@ -1,11 +1,10 @@
 from coffe_types.coffee import Espresso, Americano
 from coffee_ingredient.ingredient import Ingredient, BeanContainer, WaterContainer
-from Menu.menu import Menu
-from Exception.custom_exception import Message
+from menu.menu import Menu
+from exception.custom_exception import Message
 
 
 class CoffeeMaker(Menu, Ingredient):
-
     def make_coffee(self):
         """Make coffee based on customer order"""
         self.display_coffee_menu()

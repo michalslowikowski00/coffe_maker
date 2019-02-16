@@ -1,6 +1,4 @@
-
 class Menu:
-
     def display_coffee_menu(self):
         """Display available menu for customer"""
         espresso = "1. Espresso"

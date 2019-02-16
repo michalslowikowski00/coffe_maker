@@ -1,8 +1,7 @@
-from Exception.custom_exception import NoCoffee, NoWater
+from exception.custom_exception import NoCoffee, NoWater
 
 
 class Ingredient:
-
     @property
     def bean(self):
         b = BeanContainer()
@@ -15,7 +14,6 @@ class Ingredient:
 
 
 class BeanContainer(Ingredient):
-
     def __init__(self, amount_of_bean=1000):
         self.amount_of_bean = amount_of_bean
 
@@ -26,7 +24,9 @@ class BeanContainer(Ingredient):
         if coffee >= 100:
             self.amount_of_bean = coffee
         else:
-            raise NoCoffee("Amount of Coffee in class Beans: {0}".format(self.amount_of_bean))
+            raise NoCoffee(
+                "Amount of Coffee in class Beans: {0}".format(self.amount_of_bean)
+            )
 
     def set_new_values_for_coffee_ingredients(self, amount_of_beans):
         # TODO doc string
@@ -36,7 +36,6 @@ class BeanContainer(Ingredient):
 
 
 class WaterContainer(Ingredient):
-
     def __init__(self, amount_of_water=1000):
         self.amount_of_water = amount_of_water
 
@@ -47,12 +46,12 @@ class WaterContainer(Ingredient):
         if water >= 100:
             self.amount_of_water = water
         else:
-            raise NoWater("Amount of Water in class Water: {0}".format(self.amount_of_water))
+            raise NoWater(
+                "Amount of Water in class Water: {0}".format(self.amount_of_water)
+            )
 
     def set_new_values_for_water_ingredients(self, amount_of_water):
         # TODO doc string
         new_value_for_water = self.get_water()
         new_value_for_water -= amount_of_water
         self.set_water(new_value_for_water)
-
-
