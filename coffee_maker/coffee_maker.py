@@ -9,23 +9,21 @@ class CoffeeMaker(Menu, Ingredient):
         """Make coffee based on customer order"""
         self.display_coffee_menu()
         order = input("Order: ")
-        e = Espresso()
-        a = Americano()
-        b = BeanContainer()
-        w = WaterContainer()
+        espresso = Espresso()
+        americano = Americano()
+        bean_container = BeanContainer()
+        water_container = WaterContainer()
 
         if order == "1":
-            e.make_coffee(e.bean, e.water)
-            b.set_new_values_for_coffee_ingredients(e.bean)
-            w.set_new_values_for_water_ingredients(e.water)
-            print(b.amount_of_bean)
-            print(w.amount_of_water)
-            return e
+            espresso.make_coffee(espresso.bean, espresso.water)
+            bean_container.set_new_values_for_coffee_ingredients(espresso.bean)
+            water_container.set_new_values_for_water_ingredients(espresso.water)
+            return espresso
         elif order == "2":
-            a.make_coffee(a.bean, a.water)
-            b.set_new_values_for_coffee_ingredients(a.bean)
-            w.set_new_values_for_water_ingredients(a.water)
-            return a
+            americano.make_coffee(americano.bean, americano.water)
+            bean_container.set_new_values_for_coffee_ingredients(americano.bean)
+            water_container.set_new_values_for_water_ingredients(americano.water)
+            return americano
         elif order == "3":
             print(Message.canceled_order_message)
         else:
