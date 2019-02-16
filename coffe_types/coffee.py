@@ -1,7 +1,7 @@
 """ Module with two types of coffee -- espresso and americano."""
 import logging
 
-from coffee_ingredient.ingredient import Ingredient
+from coffee_ingredient.ingredient import Ingredient, BeanContainer, WaterContainer
 from Exception.custom_exception import Message, NoWater
 from Exception.custom_exception import NoCoffee
 
@@ -15,29 +15,28 @@ class Coffee:
     bean = None
     water = None
 
-    def make_coffee(self):
-        _i = Ingredient()
-        _e = Espresso()
-        _result = True
+    def make_coffee(self, bean, water):
+        i = Ingredient()
+        result = True
 
-        while _result:
+        while result:
             try:
-                _i.isBeanContainerEmpty(_e.bean)
-                _result = False
-                raise NoCoffee
-                # if _i.isWaterContainerEmpty:
-                #     _result = False
-                #     raise NoWater
+                if i.bean < bean:
+                    result = False
+                    raise NoCoffee
+                if i.water < water:
+                    result = False
+                    raise NoWater
             except NoCoffee:
                 logging.exception(NoCoffee.no_coffee_message)
             except NoWater:
                 logging.exception(NoWater.no_water_message)
-            # else:
-            #     _result = True
-            #     print(Message.checking_coffee_message)
-            #     print(Message.preparing_coffee_message)
-            #     print(Message.coffee_is_ready_message)
-            return _result
+            else:
+                result = True
+                print(Message.checking_coffee_message)
+                print(Message.preparing_coffee_message)
+                print(Message.coffee_is_ready_message)
+            return result
             # todo: add set new values in this
 
 
