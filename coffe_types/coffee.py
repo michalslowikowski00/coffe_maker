@@ -17,11 +17,12 @@ class Coffee:
 
     def make_coffee(self):
         _i = Ingredient()
+        _e = Espresso()
         _result = True
 
         while _result:
             try:
-                _i.isBeanContainerEmpty()
+                _i.isBeanContainerEmpty(_e.bean)
                 _result = False
                 raise NoCoffee
                 # if _i.isWaterContainerEmpty:
