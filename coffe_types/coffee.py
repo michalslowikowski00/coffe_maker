@@ -1,9 +1,8 @@
 """ Module with two types of coffee -- espresso and americano."""
 import logging
 
-from coffee_ingredient.ingredient import Ingredient, BeanContainer, WaterContainer
-from exception.custom_exception import Message, NoWater
-from exception.custom_exception import NoCoffee
+from coffee_ingredient.ingredient import Ingredient
+from exception.custom_exception import Message, NoBeanError, NoWaterError
 
 
 class Coffee:
@@ -23,14 +22,14 @@ class Coffee:
             try:
                 if i.bean < bean:
                     result = False
-                    raise NoCoffee
+                    raise NoBeanError
                 if i.water < water:
                     result = False
-                    raise NoWater
-            except NoCoffee:
-                logging.exception(NoCoffee.no_coffee_message)
-            except NoWater:
-                logging.exception(NoWater.no_water_message)
+                    raise NoWaterError
+            except NoBeanError:
+                logging.exception(NoBeanError.no_coffee_message)
+            except NoWaterError:
+                logging.exception(NoWaterError.no_water_message)
             else:
                 result = True
                 print(Message.checking_coffee_message)

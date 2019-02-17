@@ -32,5 +32,5 @@ class CoffeeMaker(Menu, Ingredient):
 
 if __name__ == "__main__":
     app = CoffeeMaker()
-    # while True:
-    app.make_coffee()
+    while True:
+        app.make_coffee()

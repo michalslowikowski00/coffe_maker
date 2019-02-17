@@ -1,4 +1,5 @@
-from exception.custom_exception import NoCoffee, NoWater
+from exception.custom_exception import NoBeanError
+from exception.custom_exception import NoWaterError
 
 
 class Ingredient:
@@ -24,7 +25,7 @@ class BeanContainer(Ingredient):
         if coffee >= 100:
             self.amount_of_bean = coffee
         else:
-            raise NoCoffee(
+            raise NoBeanError(
                 "Amount of Coffee in class Beans: {0}".format(self.amount_of_bean)
             )
 
@@ -46,7 +47,7 @@ class WaterContainer(Ingredient):
         if water >= 100:
             self.amount_of_water = water
         else:
-            raise NoWater(
+            raise NoWaterError(
                 "Amount of Water in class Water: {0}".format(self.amount_of_water)
             )
 
