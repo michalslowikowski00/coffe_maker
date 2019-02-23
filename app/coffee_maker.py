@@ -1,5 +1,5 @@
-from coffe_types.coffee import Espresso, Americano
-from coffee_ingredient.ingredient import Ingredient, BeanContainer, WaterContainer
+from coffee.coffee import Espresso, Americano
+from ingredient.ingredient import Ingredient, BeanContainer, WaterContainer
 from menu.menu import Menu
 from exception.custom_exception import Message
 
@@ -20,6 +20,7 @@ class CoffeeMaker(Menu, Ingredient):
             water_container.set_new_values_for_water_ingredients(espresso.water)
             return espresso
         elif order == "2":
+            print(water_container.water)
             americano.make_coffee(americano.bean, americano.water)
             bean_container.set_new_values_for_coffee_ingredients(americano.bean)
             water_container.set_new_values_for_water_ingredients(americano.water)

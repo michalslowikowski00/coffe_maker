@@ -1,7 +1,6 @@
 """ Module with two types of coffee -- espresso and americano."""
-import logging
 
-from coffee_ingredient.ingredient import Ingredient
+from ingredient.ingredient import Ingredient
 from exception.custom_exception import Message, NoBeanError, NoWaterError
 
 
@@ -27,9 +26,9 @@ class Coffee:
                     result = False
                     raise NoWaterError
             except NoBeanError:
-                logging.exception(NoBeanError.no_coffee_message)
+                print(NoBeanError.no_coffee_message)
             except NoWaterError:
-                logging.exception(NoWaterError.no_water_message)
+                print(NoWaterError.no_water_message)
             else:
                 result = True
                 print(Message.checking_coffee_message)
