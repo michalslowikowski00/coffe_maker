@@ -19,10 +19,10 @@ class Coffee:
 
         while result:
             try:
-                if i.bean < bean:
+                if i.bean <= bean:
                     result = False
                     raise NoBeanError
-                if i.water < water:
+                if i.water <= water:
                     result = False
                     raise NoWaterError
             except NoBeanError:

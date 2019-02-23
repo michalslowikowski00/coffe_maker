@@ -1,5 +1,7 @@
 class Menu:
-    def display_coffee_menu(self):
+
+    @staticmethod
+    def display_coffee_menu():
         """Display available menu for customer"""
         espresso = "1. Espresso"
         americano = "2. Americano"

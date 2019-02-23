@@ -3,6 +3,7 @@ from exception.custom_exception import NoWaterError
 
 
 class Ingredient:
+
     @property
     def bean(self):
         b = BeanContainer()
