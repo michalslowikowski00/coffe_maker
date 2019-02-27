@@ -1,4 +1,10 @@
+
 class Menu:
+
+    # menu = {1: "Espresso",
+    #         2: "Americano",
+    #         3: "Cancel"
+    #         }
 
     @staticmethod
     def display_coffee_menu():
@@ -7,3 +13,7 @@ class Menu:
         americano = "2. Americano"
         cancel = "3. Cancel"
         print(espresso + "\n" + americano + "\n" + cancel)
+        # print(" 1. " + Menu.menu[1] + "\n",
+        #       "2. " + Menu.menu[2] + "\n",
+        #       "3. " + Menu.menu[3] + "\n")
+
