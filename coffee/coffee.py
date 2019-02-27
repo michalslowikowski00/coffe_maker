@@ -1,9 +1,7 @@
 """ Module with two types of coffee -- espresso and americano."""
-import logging
 
-from coffee_ingredient.ingredient import Ingredient
-from Exception.custom_exception import Message, NoWater
-from Exception.custom_exception import NoCoffee
+from ingredient.ingredient import Ingredient
+from exception.custom_exception import Message, NoBeanError, NoWaterError
 
 
 class Coffee:
@@ -12,29 +10,31 @@ class Coffee:
     Method make_coffee returns boolean value.
     Method returns """
 
-    @staticmethod
-    def make_coffee(bean, water):
-        _i = Ingredient()
-        _result = True
+    bean = None
+    water = None
 
-        while _result:
+    def make_coffee(self, bean, water):
+        i = Ingredient()
+        result = True
+
+        while result:
             try:
-                if _i.Beans.amnt_of_coffee <= bean:
-                    _result = False
-                    raise NoCoffee
-                if _i.Water.amnt_of_water <= water:
-                    _result = False
-                    raise NoWater
-            except NoCoffee:
-                logging.exception(NoCoffee.no_coffee_message)
-            except NoWater:
-                logging.exception(NoWater.no_water_message)
+                if i.bean <= bean:
+                    result = False
+                    raise NoBeanError
+                if i.water <= water:
+                    result = False
+                    raise NoWaterError
+            except NoBeanError:
+                print(NoBeanError.no_coffee_message)
+            except NoWaterError:
+                print(NoWaterError.no_water_message)
             else:
-                _result = True
+                result = True
                 print(Message.checking_coffee_message)
                 print(Message.preparing_coffee_message)
                 print(Message.coffee_is_ready_message)
-            return _result
+            return result
             # todo: add set new values in this
 
 
