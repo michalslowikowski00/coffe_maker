@@ -1,4 +1,4 @@
-from Exception.custom_exception import NoBeanError, NoWaterError
+from exception.custom_exception import NoBeanError, NoWaterError
 
 
 class Ingredient:
