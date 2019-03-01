@@ -4,10 +4,11 @@ from coffee.coffee import Espresso, Americano
 from ingredient.ingredient import BeanContainer, WaterContainer
 
 
-class CoffeeMaker():
+class CoffeeMaker:
     def brew_coffee(self):
         """Make coffee based on customer order"""
-        Menu.display_coffee_menu()
+        menu = Menu()
+        menu.display_coffee_menu()
         order = input("Order: ")
 
         bean_container = BeanContainer()
