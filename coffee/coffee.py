@@ -1,6 +1,7 @@
 """ Module with two types of coffee -- espresso and americano."""
-from Exception.custom_exception import NoBeanError, NoWaterError, Message
+from exception.custom_exception import NoBeanError, NoWaterError, Message
 from ingredient.ingredient import Ingredient
+
 
 class Coffee:
     """Abstract class with one method for checking if
