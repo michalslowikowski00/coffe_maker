@@ -1,5 +1,4 @@
-from exception.custom_exception import NoBeanError
-from exception.custom_exception import NoWaterError
+from Exception.custom_exception import NoBeanError, NoWaterError
 
 
 class Ingredient:
@@ -23,7 +22,7 @@ class BeanContainer(Ingredient):
         return self.amount_of_bean
 
     def set_coffee(self, coffee):
-        if coffee >= 100:
+        if coffee >= self.amount_of_bean:
             self.amount_of_bean = coffee
         else:
             raise NoBeanError(
@@ -32,8 +31,7 @@ class BeanContainer(Ingredient):
 
     def set_new_values_for_coffee_ingredients(self, amount_of_beans):
         # TODO doc string
-        new_value_for_coffee = self.get_coffee()
-        new_value_for_coffee -= amount_of_beans
+        new_value_for_coffee = self.get_coffee() - amount_of_beans
         self.set_coffee(new_value_for_coffee)
 
 
@@ -45,7 +43,7 @@ class WaterContainer(Ingredient):
         return self.amount_of_water
 
     def set_water(self, water):
-        if water >= 100:
+        if water >= self.amount_of_water:
             self.amount_of_water = water
         else:
             raise NoWaterError(
@@ -54,6 +52,5 @@ class WaterContainer(Ingredient):
 
     def set_new_values_for_water_ingredients(self, amount_of_water):
         # TODO doc string
-        new_value_for_water = self.get_water()
-        new_value_for_water -= amount_of_water
+        new_value_for_water = self.get_water() - amount_of_water
         self.set_water(new_value_for_water)
