@@ -1,7 +1,13 @@
-class Menu:
+from enum import Enum
 
-    @staticmethod
-    def display_coffee_menu():
+
+class Menu(Enum):
+
+    ESPRESSO = 1
+    AMERICANO = 2
+    CANCEL = 3
+
+    def display_coffee_menu(self):
         """Display available menu for customer"""
         espresso = "1. Espresso"
         americano = "2. Americano"
